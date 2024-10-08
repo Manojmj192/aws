@@ -14,3 +14,162 @@ Why devops?
 
 
 now the devops is evolved here to improve the process of delivery
+
+
+                                     AWS
+                                   -------
+   1.introduction of AWS  -- started 07/10/2024
+   2.IAM(identity and access management)--> how to create user in AWS
+   3.EC2 instance
+   4.AWS Networking (VPC)
+   5.AWS security
+   6.AWS route 53 
+   7.Secure VPC setup with EC2 instances
+   8,Amazon s3(simple storage service)
+   9.Aws cloud formation
+   10.AWS Elastic Beanstalk
+   11.AWS code commit 
+   12.AWS code pipeline
+   13.SWS code build
+   14.AWS code deploy
+   15.AWS Cloud watch
+   16.AWS lambda
+   17.AWS cloud watch events and event bridge  --->important
+   18.AWS cloud trail
+   19.AWS dynamoDB
+   20.AWS ECS  
+   21.AWS ECR
+   22.AWS EKS(Elastic kubernetes service)
+   23.AWS cloud watch log  
+   24. AWS secrets manager
+   25.AWS auto scaling
+   26.AWS RDS(relational database service)
+   27.AWS Elastic load Balancer
+   28.AWS system manager
+   29.AWS cloud migrataion strategies and tools
+   30.AWS best practies and job perparation
+
+
+
+introduction of AWS
+
+
+what is cloud ---------- 
+what is viruzalation -------- to solve the wasting resources in server -(for example if we have 100 gb ram for the particular server , we can deployed the 
+the application which is having 1gb then the remaining 99 gb will be wasted- so using viruzalation we can create virtual layer in server so we can
+deploy multiple application in server by using viruzalation)
+
+
+
+private cloud  
+A private cloud is dedicated exclusively to one organization, meaning the infrastructure is either hosted on-premises or by a 
+third-party service provider, but is not shared with other organizations. It provides greater control and security    
+
+Public cloud 
+The public cloud is a type of cloud computing where services (e.g., servers, storage, and applications) are delivered over the 
+internet and shared among multiple organizations. These services are provided by third-party cloud providers, and users only pay 
+for what they use
+
+Key Differences Between Public and Private Cloud:
+
+Feature	                                   Public Cloud	                                      Private Cloud
+Ownership	                      Third-party cloud providers	                          Single organization
+Scalability                      	Virtually unlimited	                                  Limited by hardware
+Cost	                              Pay-as-you-go	                                      Higher upfront costs
+Security	                Shared infrastructure, potential risks	               Higher security, isolated resources
+Management	                        Managed by provider	                             Managed by the organization
+Deployment	                        Over the internet	                            On-premises or dedicated hosting
+Accessibility	          Accessible globally over the internet	                    Often limited to internal networks
+
+
+what is AWS IAM----->why we need AWS IAM
+
+IAM (Identity and Access Management) in AWS is a service that helps manage access to AWS resources in a secure and controlled manner.
+ It allows you to define who (users, groups, roles) can access which AWS services and resources, and under what conditions.
+
+
+Users:
+
+IAM users represent individuals or applications that need access to AWS resources.
+Each user has a unique identity and can be assigned individual security credentials (e.g., access keys or passwords).
+You can define what actions the user is allowed to perform via permissions.
+
+Groups:
+
+A collection of IAM users.
+You can assign permissions to a group, and each user in the group inherits those permissions. 
+This simplifies the management of permissions for multiple users.
+
+Roles:
+
+IAM roles are like users but are intended to be assumed by entities such as users, applications, or services (even other AWS services).
+Roles provide temporary access to AWS resources, which is useful for applications or services that need limited access for specific tasks.
+Common use cases include allowing EC2 instances or Lambda functions to interact with other AWS services without hardcoding credentials.
+
+Roles are created for temporary uses - majorly if we have two AWS account if u want to talk between them we can use roles to connects
+
+And roles is created outside of the AWS
+
+Policies:
+
+Policies define permissions and control what actions are allowed on specific AWS resources.
+Policies are written in JSON format and can be attached to users, groups, or roles.
+
+Authentication:
+
+IAM allows you to authenticate users via a username and password or access keys.
+Multi-factor authentication (MFA) can be enabled for extra security.
+
+Authorization:
+
+After authentication, IAM checks if the authenticated user, group, or role is authorized to perform specific actions.
+This is done by evaluating policies attached to users, groups, or roles
+
+
+
+IAM Users details
+
+User name	               Password	                             Console sign-in URL
+Testing-user-1	           Testuser@1               https://891377140182.signin.aws.amazon.com/console
+
+
+
+
+
+
+---------------------------------------------------------------EC2 ------------------------------------------------------------
+Elastic cloud compute  is called EC2
+
+Elastic ----- prefix is used between all the services provided by AWS because we can increase the size of the container and reduce the size of the
+container as per the usage 
+
+cloud -------- this represent using the platform 
+
+compute ----------- Computer-- CPU,Disk,RAM mostly asking the virutual server
+
+An EC2 (Elastic Compute Cloud) instance is a virtual server in Amazon's Elastic Compute Cloud (EC2) for running applications on the AWS infrastructure.
+EC2 is one of the core services of AWS, providing scalable computing capacity in the cloud. This allows you to launch virtual machines (VMs)
+on demand, configure their hardware (CPU, memory, storage), and run various applications without needing to invest in physical hardware.
+
+
+Virtual Machine: 
+An EC2 instance is a virtual server with a specific amount of CPU, memory, and storage capacity. 
+It acts like a physical computer but is managed entirely by AWS in the cloud.
+
+Instance Types:
+  1.General Purpose: Balanced resources for a variety of workloads (e.g., t2.micro, m5.large).
+  2.Compute Optimized: High CPU-to-memory ratio, ideal for CPU-intensive tasks (e.g., c5.large).
+  3.Memory Optimized: Designed for memory-intensive applications (e.g., r5.large)
+  4.Storage Optimized: High-performance storage (e.g., i3.large).
+  5.GPU Instances: For graphics-intensive applications, machine learning, and AI (e.g., p3.2xlarge).
+
+  
+  How to create EC2 instance in AWS------------------------------------------------------------------------
+
+  search - EC2 ------------> click launch instance------------------------> NAME and TAGS ---------> give any name for the instance 
+  select the OS which u r going to use -----> instance type(customise the ram or memory setup for the instance)--------------> 
+  Key and pair (act like username and password to use the instance)once key and pair is created it will download the private key file
+  Network setting 
+
+
+  how to host the ec2 instance in windows
