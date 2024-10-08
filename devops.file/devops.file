@@ -1,0 +1,16 @@
+devops is a process of improving the dapplication delivery 
+1.automation
+2.quality
+3.continous monitoring 
+4.continous testing 
+
+
+Why devops?
+   delivery the application in fast and smooth with high level testing and continous releasing the application
+
+  1.before 10 years releasing the application in server will take to much of time to deploy the code to server, because it will inculde alot of people to do
+  manual work to deploy the codes in server
+        system admin, build engineer and  server admin so it will take long days to deploy the code in server with manual efforts
+
+
+now the devops is evolved here to improve the process of delivery
