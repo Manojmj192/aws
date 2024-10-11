@@ -165,11 +165,94 @@ Instance Types:
 
   
   How to create EC2 instance in AWS------------------------------------------------------------------------
-
+  
   search - EC2 ------------> click launch instance------------------------> NAME and TAGS ---------> give any name for the instance 
   select the OS which u r going to use -----> instance type(customise the ram or memory setup for the instance)--------------> 
   Key and pair (act like username and password to use the instance)once key and pair is created it will download the private key file
   Network setting 
-
-
+  
+  
   how to host the ec2 instance in windows
+
+  in windows by the use of moboxtream we lanuch our ec2 instance in aws
+  1.Once run the application in ubuntu, the default port number is 8080 and after we need to add the port number in the created instance network security\
+  aws
+
+  
+  
+------------------------------------------------------virutual private cloud(VPC)-----------------------------------------------------------------
+  
+  
+  How we define a size of the VPC ---> to define the size of the VPC is using IP address range
+
+
+   how we define and ask the range to AWS ----> by using IP address 
+
+
+   1.if aws is given one VPC including the some particular IP address range to the customer ,
+   
+   2.Then the customer will split the VPC given by the AWS by using IP range, they can split multiple server and IP address to use 
+
+   3.That is called subnet, spliting the VPC given by aws
+
+
+   VPC (Virtual Private Cloud) in AWS is a logically isolated network that allows you to define and control a virtual environment where you can
+   launch and run AWS resources like EC2 instances, databases, and other services. It gives you complete control over your virtual networking 
+   environment, including IP addresses, subnets, route tables, security, and internet gateways. A VPC mimics a traditional network setup in an 
+   on-premises data center but operates entirely within the cloud.
+
+   Key Features of a VPC:
+   -----------------------
+
+   Isolation and Control:
+
+    1.A VPC is logically isolated from other AWS customers' VPCs, providing security and control over network configurations.
+    2.You control the size of your VPC and assign your own IP address ranges (using IPv4 or IPv6).
+  
+   
+   Subnets:
+
+   1.A VPC can be divided into multiple subnets, each representing a range of IP addresses within the VPC.
+   2.Private Subnets: Used for resources that are not exposed to the internet (e.g., databases, internal services).
+   3.Public Subnets: Used for resources that need to interact with the internet (e.g., web servers).
+
+   Route Tables:
+
+   Route tables determine how traffic is directed within the VPC, both internally between subnets and externally to the internet.
+   You can configure custom route tables for each subnet to control network traffic.
+   (route is like if load balancer is send a request to that private Ip via route tables)
+
+   Internet Gateway:
+
+   An Internet Gateway (IGW) is a component that allows communication between instances in your VPC and the internet.
+   Only instances in public subnets, which have a route to the internet gateway, can directly access the internet.
+   (Internet gateway is the gateway for the VPC which is get it from AWS , the outside IP or network should reach internet gateway first to access the VPC)
+  
+   NAT Gateway:
+
+   A NAT (Network Address Translation) Gateway allows instances in private subnets to access the internet for software updates or 
+   outbound traffic without being directly accessible from the internet.  
+   (NAT is like send our IP with masked , so by masking that hackers or others can't know the IP address of ours)
+
+   Security Groups:
+
+   Security Groups act as virtual firewalls for your EC2 instances to control inbound and outbound traffic.
+   They operate at the instance level and can be applied to multiple instances.
+   (Security groups is like once load balancer send the request via routes , then routes table will try to give a way to subnet before accessing 
+   that security groups need to give the approval)
+
+   Network Access Control Lists (NACLs):
+
+   NACLs are optional and act as firewalls at the subnet level to control traffic entering and leaving the subnet.
+   Unlike security groups, which are stateful, NACLs are stateless, meaning rules must be explicitly defined for both inbound and 
+   outbound traffic.
+
+   Peering:
+
+   VPC Peering allows you to connect two VPCs (either within the same AWS account or across accounts) for communication between resources across VPCs.
+   Peered VPCs can communicate privately using private IP addresses
+
+   VPN Gateway:
+
+   AWS allows you to establish a Virtual Private Network (VPN) connection between your VPC and your on-premises data center, 
+   enabling secure access to your AWS resources from your corporate network.
