@@ -220,7 +220,7 @@ Instance Types:
 
    Route tables determine how traffic is directed within the VPC, both internally between subnets and externally to the internet.
    You can configure custom route tables for each subnet to control network traffic.
-   (route is like if load balancer is send a request to that private Ip via route tables)
+   (route is like if load balancer is send a request to that private Ip via route tables) 
 
    Internet Gateway:
 
@@ -234,18 +234,33 @@ Instance Types:
    outbound traffic without being directly accessible from the internet.  
    (NAT is like send our IP with masked , so by masking that hackers or others can't know the IP address of ours)
 
-   Security Groups:
+   Security Groups:*
 
    Security Groups act as virtual firewalls for your EC2 instances to control inbound and outbound traffic.
    They operate at the instance level and can be applied to multiple instances.
    (Security groups is like once load balancer send the request via routes , then routes table will try to give a way to subnet before accessing 
    that security groups need to give the approval)
+   1.Security groups act in a instance level
+   
+   what is inbound and outbound traffic 
+      If we try to access the application as user it is called inbound traffice
+      If the application try to access the outside worlds(outside internet) that is called outbound traffic
 
-   Network Access Control Lists (NACLs):
+      Security is always 50-50 by AWS ---> aws will do the 50% of the security work and the remaining will done by devops engineer
+      so if we didn't add any Security groups AWS will default add the SG to the instance 
+        1.It will allow all the outbound traffice export portnumber 25
+        2.and it will not allow any inbound traffic defaultly
+
+
+
+
+
+   Network Access Control Lists (NACLs):*
 
    NACLs are optional and act as firewalls at the subnet level to control traffic entering and leaving the subnet.
    Unlike security groups, which are stateful, NACLs are stateless, meaning rules must be explicitly defined for both inbound and 
    outbound traffic.
+   1.NACLs is act in a subnet level
 
    Peering:
 
