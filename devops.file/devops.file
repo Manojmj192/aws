@@ -249,7 +249,10 @@ Instance Types:
       Security is always 50-50 by AWS ---> aws will do the 50% of the security work and the remaining will done by devops engineer
       so if we didn't add any Security groups AWS will default add the SG to the instance 
         1.It will allow all the outbound traffice export portnumber 25
+              (what is port 25 ----  this is mailing activity aws doesnt allow any span activity to the system)
         2.and it will not allow any inbound traffic defaultly
+
+        ***** security group only for allowing the traffic, SG doesn't deny traffic
 
 
 
@@ -262,6 +265,12 @@ Instance Types:
    outbound traffic.
    1.NACLs is act in a subnet level
 
+      NACL is addtional layer of security to our subnets - we have more than one instance in subnet adding security groups individualy
+      to all the instance, by using NACL we can implement security and it will applicable for all the instance which is available in 
+      subnet
+      
+
+
    Peering:
 
    VPC Peering allows you to connect two VPCs (either within the same AWS account or across accounts) for communication between resources across VPCs.
@@ -271,3 +280,17 @@ Instance Types:
 
    AWS allows you to establish a Virtual Private Network (VPN) connection between your VPC and your on-premises data center, 
    enabling secure access to your AWS resources from your corporate network.
+
+
+
+
+   ********************************************* how to create VPC in AWS*******************************************************
+
+
+
+   ** AWS will be always goes in order - if we have rule 100 and that rule 100 have a permission for allow all the traffic. then AWS will
+   check that rule 100 first and allow all the traffic
+      1.Even we have rule 200 thats having deny traffic port 8000 - eventhough aws will allow the traffic 8000, because in rule 100
+      we have allowed all the traffic so it will excute by the order and range wise 
+
+      AWS demo VPC IP- 
