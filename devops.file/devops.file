@@ -294,3 +294,35 @@ Instance Types:
       we have allowed all the traffic so it will excute by the order and range wise 
 
       AWS demo VPC IP- 
+
+
+
+***************************************************Route 53*************************************************************************
+Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web service provided by Amazon Web Services (AWS).
+Its primary purpose is to route end-user requests to AWS services like EC2 instances, S3 buckets, or load balancers, as well as non-AWS 
+resources hosted elsewhere on the internet.
+
+route 53 provide DNS as a service --- DNS(Domain name system)
+
+Doubt --> is dns change our IP address to domain name ?--------------> A big NOOOOOOOO
+
+No, DNS (Domain Name System) doesn't change your IP address to a domain name. Instead, it works the other way around: DNS translates human-readable
+domain names (like example.com) into machine-readable IP addresses (like 192.168.1.1 or 2606:4700:4700::1111 for IPv6).
+
+
+*********************************************How DNS Works in Practice:***************************************************************************
+*User Request: When a user enters a domain name (e.g., www.example.com) into their browser, the browser sends a request to a DNS resolver 
+(usually provided by your internet service provider or a public DNS server like Google's 8.8.8.8).
+
+*DNS Lookup: The DNS resolver checks its cache to see if it has the IP address for the domain name already stored. 
+If not, it will contact other DNS servers (starting with the root DNS server, then top-level domain (TLD) servers, and so on) to find the correct 
+IP address for www.example.com.
+
+*IP Address Retrieval: Once the DNS resolver finds the IP address associated with www.example.com (e.g., 93.184.216.34), it sends that IP address 
+back to the user's browser.
+
+*Connect to Server: The browser then uses the IP address to connect to the server hosting the website at www.example.com and retrieves the webpage 
+content.
+
+
+1.In hosted zone we will save our DNS record
