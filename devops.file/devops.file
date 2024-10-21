@@ -248,7 +248,7 @@ Instance Types:
 
       Security is always 50-50 by AWS ---> aws will do the 50% of the security work and the remaining will done by devops engineer
       so if we didn't add any Security groups AWS will default add the SG to the instance 
-        1.It will allow all the outbound traffice export portnumber 25
+        1.It will allow all the outbound traffice expect portnumber 25
               (what is port 25 ----  this is mailing activity aws doesnt allow any span activity to the system)
         2.and it will not allow any inbound traffic defaultly
 
@@ -326,3 +326,4 @@ content.
 
 
 1.In hosted zone we will save our DNS record
+
