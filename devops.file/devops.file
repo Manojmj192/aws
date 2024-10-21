@@ -327,3 +327,9 @@ content.
 
 1.In hosted zone we will save our DNS record
 
+
+***********************************************************OverView********************************************************************
+1.The VPC have public subnets and private subntes in two availablity zone
+2.Each public subnet contains NAT gateway and load balancer node
+3.The server runs in the private subnets are launched and terminated by using an auto scaling group and receive traffic from the load balancer
+4.The server can connect to the internet by using the Nat gateway
