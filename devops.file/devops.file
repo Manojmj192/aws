@@ -333,3 +333,36 @@ content.
 2.Each public subnet contains NAT gateway and load balancer node
 3.The server runs in the private subnets are launched and terminated by using an auto scaling group and receive traffic from the load balancer
 4.The server can connect to the internet by using the Nat gateway
+
+why need a NAT gateway and what is NAT
+
+NAT(Network address Translation) gateway is used for mask the Private IP address to access the internet with using public IP (for.example: if private subnet want to use the JSON which is available in the internet, by using
+NAT gateway they can access that JSON in internet , here NAT will mask our private IP)
+
+NAT gateway is helps outbound traffic from a private network to the internet ,but its doesn't allow inbound connections from the internet to those resources
+
+Outbound Internet Access:
+
+A NAT Gateway provides a way for instances in a private subnet to make outbound connections to the internet or other AWS services.
+It uses Network Address Translation (NAT) to map private IP addresses to the public IP address of the NAT Gateway, allowing communication to the internet.
+
+Inbound Traffic Restriction:
+
+While a NAT Gateway allows instances to initiate outbound traffic, it does not allow any inbound traffic from the internet, meaning external parties cannot start connections to your private resources.
+
+Elastic IP Address:
+
+A NAT Gateway is associated with an Elastic IP address (EIP), which is a static, public IP address in AWS. This is the IP address used for all outbound traffic from the NAT Gateway to the
+internet.
+
+How a NAT Gateway Works:
+1.When you deploy a NAT Gateway in your public subnet, it serves as a bridge between the instances in the private subnet and the internet. Here’s how it works:
+2.An instance in the private subnet (which has a private IP) sends a request to the NAT Gateway to access an external resource, like a website or service on the internet.
+3.The NAT Gateway translates the private IP address of the instance into its own public Elastic IP (EIP) address and forwards the request to the internet.
+4.The external resource (on the internet) responds to the NAT Gateway’s public IP address.
+5.The NAT Gateway receives the response and translates the public IP back to the original private IP of the instance, sending the response to the instance.
+
+USE CASE example 
+
+----------------
+
