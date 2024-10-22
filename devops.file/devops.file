@@ -366,3 +366,62 @@ USE CASE example
 
 ----------------
 
+Suppose you have an EC2 instance in a private subnet that needs to:
+
+Download software updates from the internet.
+Communicate with AWS services, such as Amazon S3.
+However, because the instance is in a private subnet, it has no direct internet access. To enable this, you can:
+
+Create a NAT Gateway in a public subnet (which has internet access).
+Update the route table for the private subnet to route outbound internet traffic through the NAT Gateway.
+Now, your EC2 instance in the private subnet can access the internet through the NAT Gateway, and no external entity can initiate traffic to the instance from the internet.
+
+
+
+Doubts?
+
+If i have 5 instance in my private subnet in these if i want to access the internet through the NAT gateway , then the NAT gatway will generate the one elstic IP for all of my instance
+then how it should  be manage the single Public all my 5 instance - how it will be return the correct taffic to the instances individualy
+
+    **** NAT will create one public IP for all the instances available in the private subnet, 
+         Every time an instance in the private subnet sends a request to the internet, the NAT Gateway makes a note of:
+         Source private IP (e.g., 10.0.1.10)
+         Source port number (e.g., 12345)
+         Destination public IP and port (e.g., www.example.com:443)
+         The NAT Gateway translates the source private IP address (10.0.1.10) to its public IP address (e.g., 54.123.45.67) but also allocates a unique port number to keep track of each connection.
+        This combination of public IP + unique port allows it to distinguish between requests from different instances.
+
+
+         Summary
+          Even though all 5 instances share the same public IP address (from the NAT Gateway), the NAT Gateway uses port numbers and a connection tracking table to map each request and response 
+          to the correct instance.
+          Each outgoing connection from an instance gets a unique public port number when it passes through the NAT Gateway.
+          Responses from the internet are sent to the public IP + port number, which the NAT Gateway translates back to the correct private IP address of the instance in the private subnet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
