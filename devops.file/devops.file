@@ -389,7 +389,7 @@ then how it should  be manage the single Public all my 5 instance - how it will 
          Source port number (e.g., 12345)
          Destination public IP and port (e.g., www.example.com:443)
          The NAT Gateway translates the source private IP address (10.0.1.10) to its public IP address (e.g., 54.123.45.67) but also allocates a unique port number to keep track of each connection.
-        This combination of public IP + unique port allows it to distinguish between requests from different instances.
+         This combination of public IP + unique port allows it to distinguish between requests from different instances.
 
 
          Summary
@@ -398,11 +398,28 @@ then how it should  be manage the single Public all my 5 instance - how it will 
           Each outgoing connection from an instance gets a unique public port number when it passes through the NAT Gateway.
           Responses from the internet are sent to the public IP + port number, which the NAT Gateway translates back to the correct private IP address of the instance in the private subnet
 
+         
+ 1.auto scaling group
+          An Auto Scaling Group (ASG) in AWS is a feature of the Amazon EC2 Auto Scaling service that automatically manages a group of EC2 instances to maintain the desired level of performance,
+          availability, and cost efficiency for your applications. It helps in dynamically adjusting the number of instances in response to changes in demand based on predefined conditions or
+          schedules
+
+         
+                 
+
+         
+          
 
 
 
 
 
+
+
+
+          
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
 
 
