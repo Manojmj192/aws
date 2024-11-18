@@ -1,0 +1,197 @@
+1.why playwright
+  1.playwright is fast
+  2.it has iys own test runner and builtin report
+  3.it supports multiple language binding
+  4.it has a huge variesty of locator-finding strategies
+  5.it supports both web and api automation
+  6.it supoorts cross browser and cross domain testing
+  7.it has features like codegen and storage state, race
+  8.it can mock api Responses
+  9.video generation of Testuser
+  10.inbuilt wait machanisms
+
+2. How do you run failed test cases?
+
+    1. Using the --retry Option
+    Playwright supports test retries out of the box. You can configure retries in your Playwright configuration file (playwright.config.ts) or via the command line.
+
+    // playwright.config.ts
+    import { defineConfig } from '@playwright/test';
+
+    export default defineConfig({
+    retries: 2, // Retries failed tests up to 2 times
+    });
+
+    command line
+
+    npx playwright test --retries=2
+
+
+ 3.how do you handle two windows or tabs?
+
+   const browser = await chromium.launch()
+   const newContext =await browser.newContext() 
+   const page = await newContext.newPage()
+
+  //if we want to handle the new window are new tab 
+
+  const[newPage] = promise.all([newContext.waitforevent('page)], page.locator().click])
+
+4.How to generate the reports
+5.What is difference between npm and npx
+   NPM - npm is a package manager user to install,delete and update javascript packages on your machine
+   NPX - is a package executer and it is used to execute js packages directly without installing them
+
+6. What is fixture?
+7.How to launch a browser?
+8.How do you perform cross browser testing?
+9.how to execute in a local browser?
+    if using channel playwright will run in our local machine chrome version
+    use:{
+        channel :"channel",
+    }
+
+10.how to run particular test method
+By using test.only and test command like npx playwright test --grep "test name"    
+
+11.How to generate authentication cookies ?
+  npx playwright codegen --save-storage=auth.json
+   
+13.how to skip the test?
+14.how to find the Xpath and css  
+    page.locator(xpath||css)
+
+15.What is aria option?
+    1.getByLable
+    2.getByRole
+    3.getByTestid
+    4.getByTitle
+    5.getByPlaceHolder
+    6.getByAltText
+    7.getByText    
+
+16. How to handle alert
+     By using page.on we can handle the alert    
+
+     NOTE------------------------
+        f we not using page.on for handling the alert, eventhough playwirght will handle but it will dimiss the alert if we want to do any certain action then we need to go with page.on 
+
+
+17. How to use newpage or tab in playwright 
+
+     const newpage = await page.Context.newpage()          
+   
+18.playwright architecture?
+
+19.how to run a test paralley
+20.How to maximize browser
+    test.use({
+        viewport:null
+     })
+
+21. Name a few exception you faced in playwright?
+     mostly it is a timeout exception
+     What ever the error will occur it will show as timeout exception for example-- if we have strict mode vialation error it will show timeout error     
+      
+22. How do you use hard assert and soft assert
+    it will comming from jest liabery and it will be very powerfull
+    
+    expect(expectedvalue).tobehave(actualvalue)  ----------------> hard assert
+    expect.soft(await page.title()).toBe('Wrong Title'); // This will fail, but test continues. ------------>softassert
+
+23.How to open the HTML report?
+24.What is the difference between innerHTML & textContent & inner text
+
+     innerHTML
+    innerHTML retrieves or sets the HTML markup inside an element, including all child elements and their structure.
+      Key Characteristics:
+      Returns HTML content as a string.
+      Parses the provided string as HTML when setting.
+      Includes both text and HTML tags
+
+      TextContent 
+      Retrieves the full text content of an element, including text from hidden elements, but excludes any HTML tags.
+      When to Use:
+      When you want to extract or verify the raw text inside an element without any formatting or HTML.
+
+      InnerText:
+      Retrieves the visible text of an element, respecting CSS styles like display: none or visibility: hidden.
+      When to Use:
+      When you want to interact with or validate visible text as rendered on the page
+     
+25.What is Fill and Type Differences
+      Fill will clear the existing value & it passes the string in one go
+      Type will pass the data one by one character    and it will not clear the existing value it will upend
+
+26.How to attach the screenshot to the reporter?
+27.How to save a screenshot to the path?
+    await page.screenshot({path:'screenshot.png'})
+
+28. What is difference between newContext and newPage?
+     1.Newpage will be carry forward all your cookies and catche
+     2.newContext will not be carry all your cookies and catche
+ 
+29.How to handle multiple locators?
+   In playwright we have use count and store it in one variable them we ill use nth for which one we need to use like wise we can achieve multiple locators
+
+30.what are the explicitly wait is available
+31.How to verify the element css color?
+    await expect(btn).toHaveCSS("backgorund-color","#8a4d76")
+
+32.How does playwright differ from other testing frameworks like selenium?
+
+1. Supported Browsers and Platforms
+   
+Feature	                                          Playwright	                                                               Selenium
+Browsers Supported	               Chromium (Chrome, Edge), Firefox, WebKit (Safari)	                         Chrome, Firefox, Edge, Safari, Opera, IE (legacy)
+Platforms	                       Works across desktop and mobile browsers (WebKit)	                         Desktop and mobile platforms (with additional drivers)
+Headless Mode	                                Fully supported	                                                 Fully supported
+ 
+2. Speed and Performance
+
+Aspect	                                           Playwright	                                                                Selenium
+Execution Speed	                    Faster due to direct communication with browsers.	                         Relatively slower due to WebDriver's client-server model.
+Concurrency	                        Native support for multiple, isolated browser contexts.	                     Requires custom solutions like Selenium Grid.
+Resource Usage	                    More efficient, especially with parallel testing.	                         Can be resource-int
+
+3. Reliability and Flakiness
+
+Aspect	                                            Playwright                               	                               Selenium
+Test Stability	                    More stable due to built-in auto-wait mechanisms.	                         Prone to flakiness without proper waits.
+Dynamic Elements	                Handles dynamically changing DOM better.	                                 Requires explicit waits and conditions.
+Synchronization	                    Automatic, reducing the need for manual intervention.	                     Requires explicit synchronization, e.g., WebDriverWait.
+
+
+33.how should we compare the screenshot in playwright? 
+In Playwright, when you use the toHaveScreenshot method, it performs visual regression testing. Here's how it works:
+
+How Screenshot Comparison Works
+1.First Test Run (Baseline Creation):
+
+When you run the test for the first time, Playwright doesn't have any baseline image to compare against.
+It takes a screenshot of the specified element (e.g., header) and saves it as the baseline (e.g., header-snapshot.png) in a designated directory (snapshots folder).
+
+2.Subsequent Test Runs (Comparison):
+
+On subsequent test runs, Playwright will:
+Take a new screenshot of the same element (header).
+Compare the new screenshot to the previously saved baseline (header-snapshot.png).
+If both screenshots match (within a default or specified threshold), the test passes.
+If there are visual differences (e.g., content, style, layout), the test fails.
+
+3.Handling Failures:
+
+When a mismatch occurs, Playwright generates a diff image highlighting the differences between the baseline and the new screenshot.
+You can inspect the diff to determine if the changes are intentional or a bug.
+If the changes are intentional, update the baseline with the following command:
+   command for update the screenshot  ---------------> npx playwright test --update-snapshots
+   
+   
+34.How do you handle file uploads and downloads in playwright?
+       we can upload the file by to ways 
+    BY using setInputFiles('locator','path of the file')---------> single file upload
+             setInputFiles('locator',['path of the file1','path of the file 2'])------>multiple file upload
+
+    By using page.on
+
+   

@@ -1,0 +1,34 @@
+## Frames
+
+what is Iframe
+
+    An iframe (short for inline frame) is an HTML element that allows you to embed another HTML document within the current document. This embedded document can be a webpage, video, map, or any other external resource that can load in a browser. Iframes are commonly used to display content from different sources on a single webpage without requiring users to leave the page.
+
+how to find the total number of variables
+await page.frames() ----> it will return the total number frames available in the application
+
+how to handle alert
+By using page.on and dialog by using this we can achive to handle the popup
+page.on("dialog" ,async(dialog)=>{
+
+       dialog.accept("Hi manoj") --------------> it will accept the dialog and entered the name
+
+})
+
+Importance of POM?
+
+In Playwright, it's common to use a Page Object Model (POM) design pattern. This pattern encapsulates page-specific actions and elements into classes, improving code 
+reusability, maintainability, and readability.
+
+what is constructor ?
+
+constructor and function is same , constructor is also a function
+constructor name should be start with captial letter, for example-    
+function User (){
+
+}
+
+The constructor is a special method that is automatically called when an instance of a class is created. It is commonly used to initialize an object, set up its properties, 
+or pass dependencies such as Page in Playwright
+
+
