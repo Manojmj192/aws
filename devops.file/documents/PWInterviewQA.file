@@ -192,6 +192,50 @@ If the changes are intentional, update the baseline with the following command:
     BY using setInputFiles('locator','path of the file')---------> single file upload
              setInputFiles('locator',['path of the file1','path of the file 2'])------>multiple file upload
 
-    By using page.on
+    // Remove all the selected files
+  await page.getByLabel('Upload file').setInputFiles([]);
 
-   
+If you don't have input element in hand (it is created dynamically), you can handle the page.on('filechooser') event or use a corresponding waiting method upon your action:
+// Start waiting for file chooser before clicking. Note no await.
+const fileChooserPromise = page.waitForEvent('filechooser');
+await page.getByLabel('Upload file').click();
+const fileChooser = await fileChooserPromise;
+await fileChooser.setFiles(path.join(__dirname, 'myfile.pdf'));
+
+
+
+
+35.What is fixtures
+  Playwright Test is based on the concept of test fixtures. Test fixtures are used to establish the environment for each test, giving the test everything it needs and nothing else. 
+  Test fixtures are isolated between tests. With fixtures, you can group tests based on their meaning, instead of their common setup
+
+
+  to create a new fixture we can use test.extent()
+
+
+ 36. How to take screenshot?
+    1.Here is a quick way to capture a screenshot and save it into a file:
+    await page.screenshot({ path: 'screenshot.png' });
+    2.Full page screenshot is a screenshot of a full scrollable page, as if you had a very tall screen and the page could fit it entirely
+    await page.screenshot({ path: 'screenshot.png', fullPage: true });
+    3.Rather than writing into a file, you can get a buffer with the image and post-process it or pass it to a third party pixel diff facility.
+    const buffer = await page.screenshot();
+    console.log(buffer.toString('base64'));
+    4.Sometimes it is useful to take a screenshot of a single element.
+    await page.locator('.header').screenshot({ path: 'screenshot.png' });
+
+37.How can we select the multiple options?
+  Selects one or multiple options in the <select> element with locator.selectOption(). You can specify option value, or label to select. Multiple options can be selected.
+    wait page.getByLabel('Choose multiple colors').selectOption(['red', 'green', 'blue']);
+
+38.How to perform click actions ?
+  // Generic click
+await page.getByRole('button').click();
+// Double click
+await page.getByText('Item').dblclick();
+// Right click
+await page.getByText('Item').click({ button: 'right' });
+// Hover over element
+await page.getByText('Item').hover();
+// Click the top left corner
+await page.getByText('Item').click({ position: { x: 0, y: 0 } });
