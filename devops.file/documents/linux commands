@@ -1,0 +1,13 @@
+Linux commands
+
+1.Filecommands
+--------------
+  (i) CAT commands
+  this is used for creating the file - how can we create the file by using     cat > filename.format(testdocument.txt) ---> this will create a new file  
+  Using CAT command we can view the file ---> cat filename(testdocument.txt)
+  using CAT command we can concat the documents details ----> cat testdocument.text testdocument123.txt (it will show the content of both documnents)
+   
+   
+
+
+

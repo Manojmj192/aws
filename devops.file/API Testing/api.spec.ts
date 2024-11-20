@@ -172,7 +172,7 @@ test("create a booking ", async ({ request }) => {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
         },
       }
     );
