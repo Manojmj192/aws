@@ -1,0 +1,25 @@
+1.How do you perform API testing using Playwright?
+Answer: Playwright provides a request object that can be used for making API calls like GET, POST, PUT, and DELETE. You can test API endpoints by verifying status codes, response times, and response data.
+
+2.What are some common challenges you’ve faced while testing APIs with Playwright?
+Answer:
+Handling authentication flows.
+Dealing with dynamic data in responses.
+Managing rate limits and API timeouts.
+Parsing and validating complex response structures.
+
+3.How do you test file uploads or downloads via API in Playwright?
+Answer:
+typescript
+Copy code
+const response = await request.post('https://example.com/upload', {
+multipart: {
+file: fs.createReadStream('path/to/file.txt'),
+},
+});
+
+4.How would you test a login endpoint that returns a JWT token?
+Answer:
+Send credentials via a POST request.
+Verify the status code and response structure.
+Decode the JWT token and validate its claims.
