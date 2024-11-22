@@ -81,6 +81,7 @@ Management	                        Managed by provider	                         
 Deployment	                        Over the internet	                            On-premises or dedicated hosting
 Accessibility	          Accessible globally over the internet	                    Often limited to internal networks
 
+--------------------------------------------------IAM------------------------------------------------------------------------------------
 
 what is AWS IAM----->why we need AWS IAM
 
