@@ -13,7 +13,7 @@ Why devops?
         system admin, build engineer and  server admin so it will take long days to deploy the code in server with manual efforts
 
 
-now the devops is evolved here to improve the process of delivery
+now the devops is evolved here to improve the process of delivery   
 
 
                                      AWS
@@ -81,7 +81,6 @@ Management	                        Managed by provider	                         
 Deployment	                        Over the internet	                            On-premises or dedicated hosting
 Accessibility	          Accessible globally over the internet	                    Often limited to internal networks
 
---------------------------------------------------IAM------------------------------------------------------------------------------------
 
 what is AWS IAM----->why we need AWS IAM
 
@@ -109,7 +108,7 @@ Common use cases include allowing EC2 instances or Lambda functions to interact 
 
 Roles are created for temporary uses - majorly if we have two AWS account if u want to talk between them we can use roles to connects
 
-And roles is created outside of the AWS
+And roles is created outside of the AWS  
 
 Policies:
 
