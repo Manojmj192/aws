@@ -1,75 +1,69 @@
 Basic Questions
 What is Playwright, and how is it different from Selenium?
-  Playwright is a modern, open-source automation framework developed by Microsoft for testing web applications. It enables developers to perform end-to-end testing by automating browsers 
-  such as Chromium (Chrome), Firefox, WebKit (Safari), and Microsoft Edge. Playwright supports multiple programming languages, including JavaScript, TypeScript, Python, Java, and .NET.
+Playwright is a modern, open-source automation framework developed by Microsoft for testing web applications. It enables developers to perform end-to-end testing by automating browsers
+such as Chromium (Chrome), Firefox, WebKit (Safari), and Microsoft Edge. Playwright supports multiple programming languages, including JavaScript, TypeScript, Python, Java, and .NET.
 
-  playwright have inbuilt wait machinism , and its allow you to perform cross browser testing using , webkit,Firefox and chromium. and playwright have default report genrator, simplified parllel
-  execution using browser context, execution speed Faster due to direct communication with browser engines.
-   
+playwright have inbuilt wait machinism , and its allow you to perform cross browser testing using , webkit,Firefox and chromium. and playwright have default report genrator, simplified parllel
+execution using browser context, execution speed Faster due to direct communication with browser engines.
+
 How does Playwright handle cross-browser testing?
-  By default playwright will allow cross browser testing by using (chromium,webkit,Firefox), however if you want to run in all the browser in single we can configure that in playwright.config.ts file
+By default playwright will allow cross browser testing by using (chromium,webkit,Firefox), however if you want to run in all the browser in single we can configure that in playwright.config.ts file
 
-  (const browsersetup of [chromium,Firefox,webkit]){
-    const browser = await browsersetup.launch()
-    const browsercontext = await browser.newcontext()
-    const page = await     browserContext.newPage()
-    await page.goto("url")
+(const browsersetup of [chromium,Firefox,webkit]){
+const browser = await browsersetup.launch()
+const browsercontext = await browser.newcontext()
+const page = await browserContext.newPage()
+await page.goto("url")
 
-  }
+}
 
-  by using playwright testrunner makes easier to run tests across multiple browser manually
-
-  
+by using playwright testrunner makes easier to run tests across multiple browser manually
 
 What are the main features of Playwright?
- playwright is powerfull end to end testing framework with features designed to handle modern web application testing 
-  1.cross browser testing
-  2.multi lanugage support
-  3.fast and reliable
-  4.parelle testing with browser context
-  5.advanced locator strategies
-  6.network  interception and mocking 
-  7.device and browser emulation
-  8.buildIN test runner
-  9.visual regression testing
-  10.trace viewer for debugging
-  11.headless and headful modes
-  12.Roboust APIs for Page action   
-  13.automated Assertions
-  14.Multi tab and frame handling 
-  15.continous Integration CI friendly
-  16.extensible and flexible 
-  17.community and documentation
-
-
+playwright is powerfull end to end testing framework with features designed to handle modern web application testing
+1.cross browser testing
+2.multi lanugage support
+3.fast and reliable
+4.parelle testing with browser context
+5.advanced locator strategies
+6.network interception and mocking
+7.device and browser emulation
+8.buildIN test runner
+9.visual regression testing
+10.trace viewer for debugging
+11.headless and headful modes
+12.Roboust APIs for Page action  
+ 13.automated Assertions
+14.Multi tab and frame handling
+15.continous Integration CI friendly
+16.extensible and flexible
+17.community and documentation
 
 What programming languages does Playwright support?
- playwright will support java, JavaScript, c++,python,.net  
-
+playwright will support java, JavaScript, c++,python,.net
 
 How do you install Playwright, and what are its prerequisites?
-   prerequisites -----> node js
-   then install the playwright NPM init playwright@latest
+prerequisites -----> node js
+then install the playwright NPM init playwright@latest
 
-   if you want to intiazlie the project
-   to install the playwright NPX install playwright
+if you want to intiazlie the project
+to install the playwright NPX install playwright
 
 What is the role of playwright.config.ts in a Playwright project?
-The playwright.config.ts file plays a crucial role in configuring and managing Playwright test settings. It is used to define global settings, behaviors, and parameters that apply across all 
+The playwright.config.ts file plays a crucial role in configuring and managing Playwright test settings. It is used to define global settings, behaviors, and parameters that apply across all
 tests in your Playwright project. This central configuration file streamlines test execution and ensures consistency.
-
 
 -------------------------------------------Locator and Interaction Questions-----------------------------------------------------------
 What are selectors in Playwright, and how do you use them?
- We have locators, css selector, xpath and ARIA locators to locate the element
+We have locators, css selector, xpath and ARIA locators to locate the element
 
 What is the difference between locator, getByText, and getByRole in Playwright?
-  Use locator for flexible and general-purpose element selection, especially with CSS, XPath, or nested elements.
-  Use getByText when the element can be identified by its visible text content.
-  Use getByRole for accessibility and ARIA role-based element selection, especially when dealing with buttons, headings, checkboxes, and dialogs.
+Use locator for flexible and general-purpose element selection, especially with CSS, XPath, or nested elements.
+Use getByText when the element can be identified by its visible text content.
+Use getByRole for accessibility and ARIA role-based element selection, especially when dealing with buttons, headings, checkboxes, and dialogs.
 
 How do you handle dynamic elements in Playwright tests?
-   IN playwright for handling the dynamic elements we have inbuild await machanism , we can implement explict wait that is  {state:hidden,visible,attached,detached} and wait for methods this one is used for highlevel waitForSelector, waitForTimeout,Waitforevent, waitforresponse
+IN playwright for handling the dynamic elements we have inbuild await machanism , we can implement explict wait that is {state:hidden,visible,attached,detached} and wait for methods this one is used for highlevel waitForSelector, waitForTimeout,Waitforevent, waitforresponse
 
 How do you wait for an element to become visible or enabled before interacting with it?
 so we can use explict wait for that, await page.waitforSelector("snbdjsbd",{state:'visible','enabled'}) orelse we can use isvisible or is enabled
@@ -79,92 +73,102 @@ while(await locator("").isVisible(),isEnabled(){
 
 What is the difference between click() and dblclick() in Playwright?
 click() will perform single click for the element and if you want to perform right or left click we will use click("loctor",{button:'right'})
-dbl click will perform double click(), if you want to select the perform or perform any double  click action we should use dblclick()
-
+dbl click will perform double click(), if you want to select the perform or perform any double click action we should use dblclick()
 
 How can you interact with dropdown menus and radio buttons in Playwright?
-  1.dropdown are basicly comes form select HTML elements so  in playwright we have selectOption method for select the dropdown, we can select the dropdown by using value,lable,and index. if you want to select the multiple dropdown we can pass the values in array inside the selectOptions method
-  2.Radio button are basiclly comes form input HTML elements so we have methdod to select the the radio  by using check method
+1.dropdown are basicly comes form select HTML elements so in playwright we have selectOption method for select the dropdown, we can select the dropdown by using value,lable,and index. if you want to select the multiple dropdown we can pass the values in array inside the selectOptions method
+2.Radio button are basiclly comes form input HTML elements so we have methdod to select the the radio by using check method
 
 Advanced Concepts
-Explain how Playwright handles parallel execution of tests. 
-     Playwright will run all the tests file  paralley, if we have 4cpu core it will run 4 workers
+Explain how Playwright handles parallel execution of tests.
+Playwright will run all the tests file paralley, if we have 4cpu core it will run 4 workers
 
 How do you manage multiple browser contexts and tabs in Playwright?
-   by using promise.all we can handle multiple browsers.
+by using promise.all we can handle multiple browsers.
 
 What are fixtures in Playwright, and how do they enhance test reusability?
-  Fixtures in Playwright are used to create reusable setups, contexts, and resources for running tests. Playwright provides built-in fixtures such as page, context, browser, and request, which are commonly used to interact with the browser and perform tests. Additionally, Playwright supports custom fixtures, allowing you to define your own reusable logic or data tailored to specific testing needs. These fixtures simplify setup, promote test reusability, and help manage resource lifecycles efficiently.
+Fixtures in Playwright are used to create reusable setups, contexts, and resources for running tests. Playwright provides built-in fixtures such as page, context, browser, and request, which are commonly used to interact with the browser and perform tests. Additionally, Playwright supports custom fixtures, allowing you to define your own reusable logic or data tailored to specific testing needs. These fixtures simplify setup, promote test reusability, and help manage resource lifecycles efficiently.
 
 How does Playwright handle API testing, and what are its benefits?
-    In Playwright, we have a request object to interact with APIs directly. Playwright also allows us to mock API responses for testing specific scenarios. This helps validate the application's backend (APIs) before starting UI development. By ensuring that APIs are functioning correctly before integrating them with the frontend, we can reduce issues and streamline the development process.
+In Playwright, we have a request object to interact with APIs directly. Playwright also allows us to mock API responses for testing specific scenarios. This helps validate the application's backend (APIs) before starting UI development. By ensuring that APIs are functioning correctly before integrating them with the frontend, we can reduce issues and streamline the development process.
 
 What is the difference between page.on('request') and page.on('response')?
-page.on for request is listing the outgoing network requests 
+page.on for request is listing the outgoing network requests
 page.on for response is listening the incoming network requests
-  
 
-How do you handle authentication in Playwright tests, such as login sessions or token-based auth?y 
-  we can handle authentication is playwright by passing the token in headers.
-  requset.post("URL",{
-    
+How do you handle authentication in Playwright tests, such as login sessions or token-based auth?y
+we can handle authentication is playwright by passing the token in headers.
+requset.post("URL",{
+
       headers:{
         'authentication' :"bearer token"
       }
-    
-  })
 
+})
 
 Debugging and Performance
 What debugging tools does Playwright provide?
-  playwright provide multiple debug options for debugging the tests 1. using in cli npx playwright test --debug it will open the playwright inspector to debug the code
+playwright provide multiple debug options for debugging the tests 1. using in cli npx playwright test --debug it will open the playwright inspector to debug the code
 
 How do you use Playwright’s Trace Viewer for debugging failed tests?
 await page.context().tracing.start({screenshots:true,snapshots:true})
 await page.context().tracing.stop({path:'trace.zip'})
 
 What is the purpose of the slowMo and headless options in Playwright?
- slowMo is used to  for create the delay time between each playwright action  it will help us to do the debug
- headless mode will run with UI visible for user mostly it has been perpared for CICD 
+slowMo is used to for create the delay time between each playwright action it will help us to do the debug
+headless mode will run with UI visible for user mostly it has been perpared for CICD
 
 How can you optimize Playwright tests for better performance?
 How should mock the responses?
- await page.route('https://api.example.com', route => {
-    route.fulfill({
-        status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify({ data: 'mocked response' }),
-    });
+
+await page.route('https://api.example.com', route => {
+route.fulfill({
+status: 200,
+contentType: 'application/json',
+body: JSON.stringify({ data: 'mocked response' }),
+});
 });
 
+await page.route('https://api.exanple.com',route=>{
+
+route.fullfill({
+status:200,
+message :
+
+})
+
+})
 Assertions and Verifications
 What assertion libraries can be used with Playwright?
- playwright have the own inbuild assertion called expect from playwright 
- toBeVisible()
+playwright have the own inbuild assertion called expect from playwright
+toBeVisible()
 toHaveText()
 toHaveAttribute()
 toBeEnabled()
 toHaveClass()
-toHaveValue()   & chai assertion is  the most used libaries
+toHaveValue() & chai assertion is the most used libaries
 
 Explain the difference between expect(locator).toHaveText() and expect(locator).toBeVisible().
-  tohaveText is uses for the html element does contain the particular text in there element
-  toBeVisible is used for the particular locator will be available or displayed in the dom 
+tohaveText is uses for the html element does contain the particular text in there element
+toBeVisible is used for the particular locator will be available or displayed in the dom
 
 How do you assert that an element is not present in the DOM?
-  const xx = await  page.locator("locator")
-  expect(xx).toHaveCount(0)//this will be check the locator is not  available in the DOM
-  expect(xx).not.tobeVisible() // this will be check the locator is not in viewport on the screen
+const xx = await page.locator("locator")
+expect(xx).toHaveCount(0)//this will be check the locator is not available in the DOM
+expect(xx).not.tobeVisible() // this will be check the locator is not in viewport on the screen
 
 How can you verify the contents of a downloaded file in Playwright?
-   
 
+await page.on('Downloads',async(Downloads)=>{
+downloadedfilepathe = path.join(dirname,download.filename())
+download.saveAs(downloadedfilepath)
+
+})
 
 CI/CD Integration
 How do you integrate Playwright tests into a CI/CD pipeline?
 What steps would you take to run Playwright tests in Docker?
 How do you manage environment-specific configurations in Playwright?
-
 
 Real-World Scenarios
 How would you handle file uploads and downloads in Playwright?
@@ -172,23 +176,23 @@ How would you handle file uploads and downloads in Playwright?
 How do you handle a situation where an application redirects to a new tab or browser window?
 Explain how you would test a SPA (Single Page Application) using Playwright.
 How do you handle popups, alerts, and modal dialogs in Playwright?
-by  using listners we can handle the alert popup and dialogs,
+by using listners we can handle the alert popup and dialogs,
 page.on('dialog',async(dialog){
-   
-   await dialog.accept() ----------> alert
-   await dialog.accept()------->confirm
-  await dialog.accept("manoj")------>prompt alert
+
+await dialog.accept() ----------> alert
+await dialog.accept()------->confirm
+await dialog.accept("manoj")------>prompt alert
 })
 
 beforeunload--->
- A special type of dialog that appears when a user tries to leave a page (e.g., navigating away or closing the browser) with unsaved changes. It typically asks "Do you want to leave without saving?
+A special type of dialog that appears when a user tries to leave a page (e.g., navigating away or closing the browser) with unsaved changes. It typically asks "Do you want to leave without saving?
 
- dailog.type()==='beforeunload'
- dialog.accept()
+dailog.type()==='beforeunload'
+dialog.accept()
 
 Describe how you would test a responsive web application with Playwright.
 
-we can set the viewport to accomdate  the responsive as per the we want for example if we want to test in 
+we can set the viewport to accomdate the responsive as per the we want for example if we want to test in
 //laptop view
 await page.setviewportsize({width:1980,height:1080}),
 //tablet view
@@ -196,21 +200,20 @@ await page.setViewPortSize({widtg:1024,height:800})
 
 in playwright by default we have devices responsive to utilze
 test.use({
-  browserName:"chromimum",
-  ...devices['iphone13pro']
+browserName:"chromimum",
+...devices['iphone13pro']
 })
 
 JavaScript/TypeScript Integration
 
 What are the advantages of using TypeScript in Playwright?
- 1.
-How do you define and use reusable helper functions in Playwright?
-  Reusable helper functions in Playwright simplify test automation by encapsulating common tasks such as navigation, clicking, or form filling into dedicated functions or classes. These helpers can be called across multiple test files, promoting code reuse, readability, and maintainability.
-What are some common TypeScript types you use when writing Playwright tests?
+
+1.  How do you define and use reusable helper functions in Playwright?
+    Reusable helper functions in Playwright simplify test automation by encapsulating common tasks such as navigation, clicking, or form filling into dedicated functions or classes. These helpers can be called across multiple test files, promoting code reuse, readability, and maintainability.
+    What are some common TypeScript types you use when writing Playwright tests?
 
 What is tsconfig.json?
 tsconfig.json is a configuration file in a TypeScript project that specifies the compiler options, project structure, and file inclusion/exclusion settings for the TypeScript compiler (tsc). It provides instructions on how to compile the TypeScript code into JavaScript and allows developers to customize the behavior of the compiler according to their project's requirements.
-
 
 Miscellaneous
 What are the common challenges in automating tests with Playwright, and how do you overcome them?
@@ -219,7 +222,6 @@ What is context.storageState(), and how is it used in authentication?
 What strategies do you use for data-driven testing in Playwright?
 How do you use Playwright with BDD tools like Cucumber?
 
-
 Scenario-Based Questions
 How would you handle a flaky test in Playwright?
 You encounter an intermittent timeout error during a Playwright test—how would you troubleshoot it?
@@ -227,7 +229,6 @@ Describe how you would create a test for a complex form submission with conditio
 What approach would you use to handle CAPTCHA or multi-factor authentication in Playwright?
 How would you manage global setup and teardown for your Playwright tests?
 Let me know if you'd like answers or additional elaboration on any of these questions!
-
 
 General Playwright Usage
 What is the difference between browser.newPage() and browserContext.newPage()?
@@ -256,6 +257,7 @@ How do you handle testing a multilingual web application in Playwright?
 
 Test Organization and Framework
 How do you structure a Playwright project for scalability?
+
 What is the role of global-setup and global-teardown in Playwright?
 How do you parameterize tests in Playwright?
 What is the difference between test retries and timeout configurations?
@@ -303,8 +305,7 @@ How would you design tests for a highly interactive dashboard with real-time upd
 How do you ensure Playwright tests remain stable during frequent UI changes?
 How do you balance test coverage with execution speed in Playwright?
 
-
-Authentication Handling ---- doing login funcionality for every test method risky and taking lot of time 
+Authentication Handling ---- doing login funcionality for every test method risky and taking lot of time
 Challenge: Logging in for every test can slow down execution.
 Solution:
 Use browser storage state to persist login sessions across tests.

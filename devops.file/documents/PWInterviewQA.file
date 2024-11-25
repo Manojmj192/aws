@@ -37,6 +37,7 @@
 
   const[newPage] = promise.all([newContext.waitforevent('page)], page.locator().click])
 
+
 4.How to generate the reports
 5.What is difference between npm and npx
    NPM - npm is a package manager user to install,delete and update javascript packages on your machine
