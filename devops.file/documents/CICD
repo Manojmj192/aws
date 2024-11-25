@@ -1,0 +1,16 @@
+What is CICD
+CI- continous integration | CD - continous deployement
+
+in genral every oraganization must be follow CI|CD without deployment end user can't see the application build by developers.
+for deploy the application we must follow some critira
+1.Unit testing
+2.Static code analysis
+3.code quality
+4.Automation testing
+5.Reports
+6.deployment
+
+
+jenkins is nothing but it is a binary
+
+ 
