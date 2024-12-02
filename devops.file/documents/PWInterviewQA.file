@@ -10,6 +10,7 @@
   9.video generation of Testuser
   10.inbuilt wait machanisms
 
+
 2. How do you run failed test cases?
 
     1. Using the --retry Option
@@ -239,3 +240,56 @@ await page.getByText('Item').click({ button: 'right' });
 await page.getByText('Item').hover();
 // Click the top left corner
 await page.getByText('Item').click({ position: { x: 0, y: 0 } });
+
+
+interview qustion.
+
+what is idempotetnt?
+what is status code for delete method
+what if we create a duplicate resource what is the status code?
+how can we compare the screenshot
+  // Compare the screenshot with a baseline
+  expect(screenshot).toMatchImageSnapshot();
+what is fully parallel in playwright
+how can we return the locator in method using typescript
+how do you set the screenshot in playwright html report
+
+what is readonly in typescript 
+  You can define a property as readonly within an interface or class, meaning that the property value cannot be changed once it is 
+  assigned.
+
+what is package.json file
+  
+what is config.ts file
+   
+
+how can you run the particular folder with enter the commands all the times for the test folder, how could you automate in playwright
+what is fully parallel
+what is read and write in Playwright
+what is promises write syntax for that  
+what is type of operator-------------js
+  type of is checking the type of the data type what it will be return
+what is undefined?
+   if we declared the variable without assiging the value it will return you the undefined value
+   for example =  let value ;
+
+
+what is null? and what will be the type of null
+    if the value will be declared with the null value
+   
+
+what is different between double equal to and triple equal to
+       == will not check the type of the data type for example  "5"==5   conditions is true
+       === will check the type of data types which need to equal like strict  "5"===5 this is false because "5" is a string and 5 is int 
+    
+what is lazyloading 
+   we can overcome on lazyloading by using wait for method, so it will be help us to overcome the lazyloading 
+what is hosting in playwright?
+
+what is type coercion ?
+   Type coercion is the process by which JavaScript automatically converts a value from one data type to another. This can happen 
+   implicitly (done by JavaScript) or explicitly (done by the programmer).
+     
+   
+
+

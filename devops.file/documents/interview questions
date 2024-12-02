@@ -109,7 +109,7 @@ How do you handle authentication in Playwright tests, such as login sessions or 
   requset.post("URL",{
     
       headers:{
-        'authentication' :"bearer token"
+        'authoraization' :"bearer token"
       }
     
   })
@@ -216,6 +216,7 @@ Miscellaneous
 What are the common challenges in automating tests with Playwright, and how do you overcome them?
 Explain the difference between waitForSelector and waitForLoadState.
 What is context.storageState(), and how is it used in authentication?
+   if we have 4 tests in sepc file all the test will going to do login functionality before doing actual testing in the test method, so it will slow down the process for doing login fucntionality for all the test , so over come that we have storage state that will store the authentication and will use all the test methods for the login fucntionality
 What strategies do you use for data-driven testing in Playwright?
 How do you use Playwright with BDD tools like Cucumber?
 
@@ -231,6 +232,8 @@ Let me know if you'd like answers or additional elaboration on any of these ques
 
 General Playwright Usage
 What is the difference between browser.newPage() and browserContext.newPage()?
+
+
 Can you explain how Playwright handles device emulation?
 What is the significance of page.setViewportSize() in Playwright?
 How do you handle timeouts in Playwright?

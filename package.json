@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.9.1"
+  },
+  "scripts": {
+    "test:tests": "npx playwright test"
   }
 }

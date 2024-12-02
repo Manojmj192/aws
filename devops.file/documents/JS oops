@@ -1,0 +1,9 @@
+what is class and object?
+  1.class is a logical entity which contains variables & methods
+  2.object is physical entity which is instance of class
+  3.method contains statements. some times  methods can accept arugements
+  4.class also contain constructor
+  5.constructor will be called when you create object for the class
+
+
+  
